@@ -1,0 +1,31 @@
+{
+  "name": "my-chrome-extension",
+  "version": "1.0.0",
+  "description": "Projeto de uma extensão funcional para o Google Chrome (Manifest V3), desenvolvido como parte do Bootcamp de programação. A extensão funciona como um bloco de notas rápido, salvando as anotações do usuário diretamente no armazenamento local do navegador.",
+  "type": "module",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "build": "node scripts/build-extension.mjs",
+    "test:e2e": "playwright test --reporter=list,html",
+    "test": "npm run build && npm run test:e2e",
+    "ci": "npm ci && npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/g0bss/my-chrome-extension.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/g0bss/my-chrome-extension/issues"
+  },
+  "homepage": "https://github.com/g0bss/my-chrome-extension#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.56.0",
+    "archiver": "^7.0.1"
+  }
+}
