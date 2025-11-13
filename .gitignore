@@ -39,9 +39,9 @@ yarn-error.log*
 # Docker
 .docker/
 
-# Old extension files (legacy)
-src/
-icons/
-scripts/
-manifest.json
-Dockerfile
+# Old extension files (legacy) - APENAS NA RAIZ
+/src/
+/icons/
+/scripts/
+/manifest.json
+/Dockerfile
