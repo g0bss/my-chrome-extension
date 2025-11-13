@@ -18,13 +18,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
 
       # ==================== API ====================
       - name: Install API dependencies
         run: |
           cd apps/api
-          npm ci
+          npm install
 
       - name: Test API
         run: |
@@ -35,7 +34,7 @@ jobs:
       - name: Install Web dependencies
         run: |
           cd apps/web
-          npm ci
+          npm install
 
       - name: Build Web
         run: |
@@ -53,7 +52,7 @@ jobs:
 
       # ==================== E2E TESTS ====================
       - name: Install root dependencies (Playwright)
-        run: npm ci
+        run: npm install
 
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
@@ -137,7 +136,7 @@ jobs:
       - name: Install dependencies
         run: |
           cd apps/web
-          npm ci
+          npm install
 
       - name: Build for production
         run: |
