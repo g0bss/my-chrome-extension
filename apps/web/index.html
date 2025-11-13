@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bloco de notas rápido com categorias, busca e widget de clima">
+  <meta name="theme-color" content="#4f46e5">
+  <title>Notas Rápidas PWA</title>
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.webmanifest">
+
+  <!-- Ícones -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/icons/icon16.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="/icons/icon192.png">
+</head>
+<body>
+  <div id="app">
+    <!-- Header -->
+    <header class="header">
+      <h1>📝 Notas Rápidas</h1>
+      <div id="install-prompt" class="install-prompt hidden">
+        <button id="install-btn" class="btn-install">📲 Instalar App</button>
+      </div>
+    </header>
+
+    <!-- Widget de Clima -->
+    <aside id="weather-widget" class="weather-widget">
+      <div class="weather-loading">Carregando clima...</div>
+    </aside>
+
+    <!-- Barra de Ferramentas -->
+    <div class="toolbar">
+      <input
+        type="text"
+        id="search-input"
+        class="search-input"
+        placeholder="🔍 Buscar notas..."
+      >
+
+      <div class="filter-tags" id="filter-tags">
+        <button class="tag-filter active" data-tag="all">Todas</button>
+      </div>
+
+      <button id="new-note-btn" class="btn-primary">+ Nova Nota</button>
+    </div>
+
+    <!-- Lista de Notas -->
+    <main class="notes-container" id="notes-container">
+      <div class="empty-state" id="empty-state">
+        <p>Nenhuma nota ainda. Clique em "Nova Nota" para começar!</p>
+      </div>
+    </main>
+
+    <!-- Modal para Criar/Editar Nota -->
+    <div id="note-modal" class="modal hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 id="modal-title">Nova Nota</h2>
+          <button id="close-modal" class="btn-close">&times;</button>
+        </div>
+        <div class="modal-body">
+          <input
+            type="text"
+            id="note-title-input"
+            class="note-title-input"
+            placeholder="Título da nota"
+          >
+          <textarea
+            id="note-content-input"
+            class="note-content-input"
+            placeholder="Escreva suas anotações aqui..."
+            rows="10"
+          ></textarea>
+          <div class="tags-section">
+            <label>Tags:</label>
+            <div class="tag-options">
+              <button class="tag-btn" data-tag="trabalho">🏢 Trabalho</button>
+              <button class="tag-btn" data-tag="pessoal">🏠 Pessoal</button>
+              <button class="tag-btn" data-tag="ideias">💡 Ideias</button>
+              <button class="tag-btn" data-tag="urgente">🔥 Urgente</button>
+              <button class="tag-btn" data-tag="estudos">📚 Estudos</button>
+            </div>
+            <div id="selected-tags" class="selected-tags"></div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button id="delete-note-btn" class="btn-danger hidden">🗑️ Excluir</button>
+          <button id="save-note-btn" class="btn-primary">💾 Salvar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
